@@ -102,6 +102,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "ringoffire:build:production",
+            "firebaseProject": "ringoffire-4cc84",
+            "firebaseHostingSite": "ringoffire-4cc84"
+          }
         }
       }
     }

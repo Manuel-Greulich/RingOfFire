@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ringoffire-4cc84": {
+      "hosting": {
+        "ringoffire": [
+          "ringoffire-4cc84"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ringoffire-4cc84"
+  }
+}
