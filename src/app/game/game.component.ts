@@ -14,6 +14,7 @@ export class GameComponent implements OnInit {
 
   game: Game;
   gameId: string;
+  gameOver =  false;
 
 
   constructor(private route: ActivatedRoute, private firestore: AngularFirestore, public dialog: MatDialog) { 
@@ -50,14 +51,14 @@ export class GameComponent implements OnInit {
 
   newGame(){
     this.game = new Game();
-    // this.firestore
-    // .collection('games')
-    // .add(this.game.toJson());
-    
   }
 
   takeCard(){
-      if (!this.game.pickCardAnimation) {
+    if (this.game.players.length < 2) {
+      this.openDialog();
+    } else if (this.game.stack.length == 0) {
+      this.gameOver = true;  
+    } else if (!this.game.pickCardAnimation) {
       this.game.currentCard = this.game.stack.pop();
       console.log(this.game.currentCard);
       this.game.pickCardAnimation = true;
